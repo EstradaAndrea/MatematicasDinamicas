@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="logo.png" type="image/png">
+    <meta charset="UTF-8">
+    <title>Método de la Bisección</title>
+    <link rel="stylesheet" href="miestilo.css" />
+    <script src="misFunciones.js" defer></script>
+</head>
+<body>
+    <nav class="menu-lateral">
+        <ul>
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="ejercicio2.html">📋 Ejercicio 2</a></li>
+          <li><a href="ejercicio3.html">🎨 Ejercicio 3</a></li>
+          <li><a href="ejercicio4.html">🔧 Ejercicio 4</a></li>
+          <li><a href="ejercicio5.html">🖌️ Ejercicio 5</a></li>
+          <li><a href="ejercicio6.html">📐 Ejercicio 6</a></li>
+          <li><a href="ejercicio61.html">🧮 Ejercicio 6.1</a></li>
+        </ul>
+    </nav>    
+    <h1>Método de la Bisección</h1>
+
+    <p>
+        El <strong>método de la bisección</strong> es un algoritmo numérico que permite encontrar raíces de funciones continuas en un intervalo <em>[a, b]</em> donde <em>f(a) * f(b) &lt; 0</em>.
+    </p>
+    <ul>
+        <li>Calcular el punto medio <em>m = (a + b) / 2</em></li>
+        <li>Evaluar <em>f(m)</em></li>
+        <li>Si <em>f(m)</em> ≈ 0, se considera raíz</li>
+        <li>Si no, se reduce el intervalo donde haya cambio de signo</li>
+    </ul>
+
+    <h2>Calculadora interactiva</h2>
+
+    <div style="margin-bottom: 15px;">
+        <label for="funcion">Introduce la función f(x) cuya raíz deseas calcular:</label><br>
+        <input type="text" id="funcion" placeholder="Ej. x^3 + 7*x^2 - 140*x - 300" style="width: 100%;">
+    </div>
+
+    <div class="teclado">
+        <button onclick="insertar('x')">x</button>
+        <button onclick="insertar('+')">+</button>
+        <button onclick="insertar('-')">-</button>
+        <button onclick="insertar('*')">*</button>
+        <button onclick="insertar('/')">/</button>
+        <button onclick="insertar('^')">^</button>
+        <button onclick="insertar('(')">(</button>
+        <button onclick="insertar(')')">)</button>
+        <button onclick="insertar('sin(')">sin</button>
+        <button onclick="insertar('cos(')">cos</button>
+        <button onclick="insertar('tan(')">tan</button>
+        <button onclick="insertar('log(')">log</button>
+        <button onclick="insertar('sqrt(')">√</button>
+        <button onclick="insertar('pi')">π</button>
+        <button onclick="insertar('e')">e</button>
+        <button onclick="borrar()">⟵</button>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; align-items: flex-end;">
+        <div>
+            <label for="a">Extremo inferior (a):</label><br>
+            <input type="number" id="a" step="0.5" placeholder="Ej. 6">
+        </div>
+        <div>
+            <label for="b">Extremo superior (b):</label><br>
+            <input type="number" id="b" step="0.5" placeholder="Ej. 11">
+        </div>
+        <div>
+            <label for="n">Número de iteraciones:</label><br>
+            <input type="number" id="n" min="10" step="10" placeholder="Ej. 100">
+        </div>
+        <div>
+            <button onclick="calcularBiseccion()">Hallar raíz</button>
+        </div>
+    </div>
+
+    <h2>Resultado</h2>
+    <pre id="resultado"></pre>
+</body>
+</html>

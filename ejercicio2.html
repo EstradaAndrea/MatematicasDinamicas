@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="logo.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Listas, Tablas y Formularios</title>
+    <link rel="stylesheet" href="miestilo.css">
+    <script src="misFunciones.js" defer></script>
+</head>
+<body>     
+    <nav class="menu-lateral">
+        <ul>
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="ejercicio2.html">📋 Ejercicio 2</a></li>
+          <li><a href="ejercicio3.html">🎨 Ejercicio 3</a></li>
+          <li><a href="ejercicio4.html">🔧 Ejercicio 4</a></li>
+          <li><a href="ejercicio5.html">🖌️ Ejercicio 5</a></li>
+          <li><a href="ejercicio6.html">📐 Ejercicio 6</a></li>
+          <li><a href="ejercicio61.html">🧮 Ejercicio 6.1</a></li>
+        </ul>
+    </nav>      
+    <h1>Ejercicio 2: Aplicando Listas, Tablas y Formularios</h1>
+    
+    <h2>1. Listas</h2>
+    <h3>Lista Desordenada</h3>
+    <ul>
+        <li>Elemento A</li>
+        <ul>
+            <li> Elemento A.1 </li>
+            <li> Elemento A.2 </li>
+            <li> Elemento A.3 </li>
+         </ul>
+        <li>Elemento B</li>
+        <li>Elemento C</li>
+    </ul>
+
+    <h3>Lista Ordenada</h3>
+    <ol>
+        <li>Paso 1</li>
+        <li>Paso 2</li>
+        <li>Paso 3</li>
+        <ol type="I">
+            <li> Elemento 3.1 </li>
+            <li> Elemento 3.2 </li>
+            <li> Elemento 3.3 </li>
+         </ol>
+    </ol>
+
+    <h2>2. Tabla de Datos</h2>
+    <table border="1" style="width: 100%; text-align: center;">
+        <tr style="background-color: lightgrey;">
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Profesión</th>
+        </tr>
+        <tr>
+            <td>Juan</td>
+            <td>30</td>
+            <td>Ingeniero</td>
+        </tr>
+        <tr style="background-color: lightgrey;">
+            <td>María</td>
+            <td>28</td>
+            <td>Doctora</td>
+        </tr>
+        <tr>
+            <td>Carlos</td>
+            <td>35</td>
+            <td>Profesor</td>
+        </tr>
+    </table>
+
+    <h2>3. Formulario de Registro</h2>
+    <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad"><br><br>
+
+        <label>Género:</label>
+        <input type="radio" id="hombre" name="genero" value="Hombre">
+        <label for="hombre">Hombre</label>
+        <input type="radio" id="mujer" name="genero" value="Mujer">
+        <label for="mujer">Mujer</label><br><br>
+
+        <label>Intereses:</label>
+        <input type="checkbox" id="deporte" name="interes" value="Deporte">
+        <label for="deporte">Deporte</label>
+        <input type="checkbox" id="musica" name="interes" value="Música">
+        <label for="musica">Música</label>
+        <input type="checkbox" id="ciencia" name="interes" value="Ciencia">
+        <label for="ciencia">Ciencia</label><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+</body>
+</html>

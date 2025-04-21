@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="logo.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Continuidad de Funciones y Topología</title>
+    <link rel="stylesheet" href="miestilo.css">
+    <script src="misFunciones.js" defer></script>
+
+    <!-- MathJax para ecuaciones -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true
+            }
+        });
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML' async></script>
+</head>
+<body>
+    <nav class="menu-lateral">
+        <ul>
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="ejercicio2.html">📋 Ejercicio 2</a></li>
+          <li><a href="ejercicio3.html">🎨 Ejercicio 3</a></li>
+          <li><a href="ejercicio4.html">🔧 Ejercicio 4</a></li>
+          <li><a href="ejercicio5.html">🖌️ Ejercicio 5</a></li>
+          <li><a href="ejercicio6.html">📐 Ejercicio 6</a></li>
+          <li><a href="ejercicio61.html">🧮 Ejercicio 6.1</a></li>
+        </ul>
+    </nav>    
+
+    <h1>La continuidad de funciones en espacios topológicos</h1>
+
+    <h2>1. De la intuición a la formalización</h2>
+
+    <p style="text-align: justify;">Nos enseñan en el instituto que una función es continua si podemos dibujar su gráfica sin levantar el lápiz del papel. Sin embargo, cuando nos adentramos profundamente en las Matemáticas, descubrimos definiciones formales más abstractas.</p>
+
+    <p style="text-align: justify;">¿Significa esto que nuestra intuición era incorrecta? ¡Para nada! Lo que realmente ocurre es que esa idea se generaliza cuando entramos en la topología.</p>
+
+    <h2>2. Definición formal de continuidad</h2>
+
+    <p style="text-align: justify;">Sea $(X, \tau_X)$ y $(Y, \tau_Y)$ dos espacios topológicos. Una función $f: X \to Y$ se dice <strong>continua en $x_0 \in X$</strong> si:</p>
+
+    <p class="ecuacion">$$\forall B' \in \mathcal{B}_{f(x_0)}, \quad \exists B \in \mathcal{B}_{x_0} \text{ tal que } f(B) \subseteq B'.$$</p>
+
+    <p style="text-align: justify;">Esto significa que si tomamos cualquier entorno de la imagen $f(x_0)$ en $Y$, existe un entorno de $x_0$ en $X$ cuya imagen queda dentro del primero. Es decir, <strong>las funciones continuas preservan la estructura topológica</strong>.</p>
+
+    <h2>3. ¿Cómo relacionamos esto con la idea del lápiz?</h2>
+
+    <p style="text-align: justify;">Cuando decimos que no podemos levantar el lápiz del papel, en términos topológicos estamos diciendo que <strong>los entornos en la imagen deben mantenerse conectados</strong> bajo la función $f$.</p>
+
+    <p style="text-align: justify;">Si hay un salto en la función, significa que hay un abierto en la imagen cuya preimagen no es abierta, lo que contradice nuestra definición de continuidad.</p>
+
+    <h2>4. Ejemplo. Continuidad en la topología de Sorgenfrey</h2>
+
+    <p style="text-align: justify;">Vamos a estudiar la continuidad de la función $\alpha: [0,1] \to \mathbb{R}$ dada por:</p>
+
+    <p class="ecuacion">$$ \alpha(t) = 1 + t $$</p>
+
+    <p style="text-align: justify;">usando la <strong>topología de Sorgenfrey</strong>, cuya base de entornos está dada por:</p>
+
+    <p class="ecuacion">$$ \mathcal{B}_x = \{ [x, x+\varepsilon) : \varepsilon > 0 \}. $$</p>
+
+    <h3>📌 Caso en $x = 0$</h3>
+
+    <p style="text-align: justify;">Tomemos un entorno $B \in \mathcal{B}_{\alpha(0)}$, es decir, un intervalo de la forma $[1,1+\varepsilon)$. Para la función $\alpha$ ser continua, la preimagen de $B$ debe ser un entorno en $[0,1]$. En este caso, si tomamos $B(0, \delta) = [0, \delta)$, tenemos:</p>
+
+    <p class="ecuacion">$$ \alpha([0,\delta)) = [1,1+\delta). $$</p>
+
+    <p style="text-align: justify;">Como este conjunto pertenece a la topología de Sorgenfrey, la función <strong>sí es continua en $0$</strong>.</p>
+
+    <h3>❌ Caso en $x = 1$</h3>
+
+    <p style="text-align: justify;">Ahora tomemos un entorno $B \in \mathcal{B}_{\alpha(1)} = \mathcal{B}_2$, es decir, un intervalo $[2,2+\varepsilon)$. Para que $\alpha$ sea continua, su preimagen debe ser un entorno en $[0,1]$.</p>
+
+    <p style="text-align: justify;">Sin embargo, $\alpha^{-1}([2,2+\varepsilon)) = \{1\} \cup (1,1+\varepsilon)$, que <strong>no es abierto</strong> en la topología usual de $[0,1]$. Esto implica que $\alpha$ <strong>no es continua en $1$</strong>.</p>
+
+    <h2>5. Reflexión final</h2>
+
+    <p style="text-align: justify;">Lejos de estar equivocada, la intuición del lápiz y el papel era una genialidad. Solo necesitábamos <strong>formalizarla</strong> y darle un lenguaje más abstracto.</p>
+
+    <p style="text-align: justify;">Así que la próxima vez que alguien diga que la continuidad es un concepto complicado, dile que simplemente no podemos levantar el lápiz... ¡pero dentro de la base de entornos!</p>
+
+</body>
+</html>

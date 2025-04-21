@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="logo.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 - Canvas Interactivo</title>
+    <link rel="stylesheet" href="miestilo.css">
+    <script src="misFunciones.js" defer></script>
+</head>
+<body>
+    <nav class="menu-lateral">
+        <ul>
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="ejercicio2.html">📋 Ejercicio 2</a></li>
+          <li><a href="ejercicio3.html">🎨 Ejercicio 3</a></li>
+          <li><a href="ejercicio4.html">🔧 Ejercicio 4</a></li>
+          <li><a href="ejercicio5.html">🖌️ Ejercicio 5</a></li>
+          <li><a href="ejercicio6.html">📐 Ejercicio 6</a></li>
+          <li><a href="ejercicio61.html">🧮 Ejercicio 6.1</a></li>
+        </ul>
+    </nav>    
+    <h1>Canvas interactivo con líneas poligonales</h1>
+
+    <p style="text-align: justify;">
+        En esta actividad puedes construir libremente líneas poligonales haciendo clic en el lienzo. 
+        Experimenta con diferentes colores y grosores, observa cómo se actualizan las coordenadas 
+        del último punto trazado y el total de puntos creados. También puedes cerrar la figura 
+        y reiniciar en cualquier momento. ¡Ideal para explorar conceptos de geometría y gráficos!
+    </p>      
+
+    <p>Haz click en el lienzo para dibujar una línea poligonal. También puedes borrar el lienzo, cambiar el color y grosor de línea o cerrar el polígono.</p>
+
+    <div class = "contenedor">
+
+        <canvas id="canvasPoligono" width="600" height="400" style="border:1px solid black; cursor: crosshair;" onclick="dibujarLineaPoligonal(event)"></canvas>
+
+        <div style="margin-top: 10px;">
+            <label for="colorSelector"><strong>Color de línea:</strong></label>
+            <input type="color" id="colorSelector" value="#000000">
+
+            <label for="grosorSelector"><strong>Grosor:</strong></label>
+            <input type="number" id="grosorSelector" value="2" min="1" max="20" step="1">
+
+            <button onclick="cerrarPoligono()">Cerrar polígono</button>
+            <button onclick="borrarCanvas1()">Borrar todo</button>
+        </div>
+
+        <p><strong>Coordenadas del último punto:</strong> <span id="coordenadas"></span></p>
+        <p><strong>Total de puntos trazados:</strong> <span id="contador"></span></p>
+    </div>
+</body>
+</html>

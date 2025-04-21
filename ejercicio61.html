@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="icon" href="logo.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 7 - Suma de fracciones geométricas</title>
+  <link rel="stylesheet" href="miestilo.css">
+  <script src="misFunciones.js" defer></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<!-- MathJax para ecuaciones -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            processEscapes: true
+        }
+    });
+</script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML' async></script>
+</head>
+<body>
+  <nav class="menu-lateral">
+        <ul>
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="ejercicio2.html">📋 Ejercicio 2</a></li>
+          <li><a href="ejercicio3.html">🎨 Ejercicio 3</a></li>
+          <li><a href="ejercicio4.html">🔧 Ejercicio 4</a></li>
+          <li><a href="ejercicio5.html">🖌️ Ejercicio 5</a></li>
+          <li><a href="ejercicio6.html">📐 Ejercicio 6</a></li>
+          <li><a href="ejercicio61.html">🧮 Ejercicio 6.1</a></li>
+        </ul>
+  </nav>  
+
+  <div>
+    <h1>Suma geométrica: $\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \cdots = 1$</h1>
+
+    <p style="text-align: justify;">
+        La serie infinita
+        $\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \cdots$
+        es un caso emblemático de serie geométrica convergente, cuya suma total se aproxima cada vez más a $1$ a medida que añadimos más términos. Esta serie tiene razón $\frac{1}{2}$ y comienza en el primer término. En notación matemática, puede escribirse como:
+    </p>
+      
+    <p class="ecuacion">$$
+      \sum_{n=1}^{\infty} \left( \frac{1}{2} \right)^n = 1
+    $$</p>   
+    
+    <p style="text-align: justify;">En esta demostración geométrica, representamos la suma de fracciones sobre un cuadrado de área 1. Cada paso añade una fracción de área: primero la mitad del cuadrado, luego un cuarto, después un octavo, y así sucesivamente. A medida que sumamos más y más partes, observamos visualmente cómo se va llenando completamente el cuadrado, lo cual refleja que la suma total de esta serie infinita converge a 1.</p>
+    
+    <div class = "contenedor">
+
+        <div id="cuadro"></div>
+
+        <div id="suma">Suma actual: 0</div>
+
+        <div style="margin-top: 20px;">
+            <button id="boton" onclick="agregarFraccion()">Siguiente paso</button>
+            <button onclick="reiniciarFracciones()">Borrar todo</button>
+        </div>  
+    </div>    
+  </div>
+
+</body>
+</html>
