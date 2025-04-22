@@ -1,82 +1,129 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <link rel="icon" href="logo.png" type="image/png">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ejercicio 6 - Intersección de Rectas</title>
-  <link rel="stylesheet" href="miestilo.css" />
-  <script src="misFunciones.js" defer></script>
-  <!-- MathJax para ecuaciones -->
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        processEscapes: true
-        }
-    });
-  </script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML' async></script>
-  <style>
-    canvas {
-      display: block;
-      margin: 20px auto;
-      border: 1px solid black;
-      cursor: crosshair;
-    }
-    #resultado {
-      text-align: center;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-  </style>
-</head>
-<body onload="inicializarInterseccionRectas()">
-  <nav class="menu-lateral">
-    <ul>
-      <li><a href="index.html">🏠 Inicio</a></li>
-      <li><a href="ejercicio2.html">📋 Ejercicio 2</a></li>
-      <li><a href="ejercicio3.html">🎨 Ejercicio 3</a></li>
-      <li><a href="ejercicio4.html">🔧 Ejercicio 4</a></li>
-      <li><a href="ejercicio5.html">🖌️ Ejercicio 5</a></li>
-      <li><a href="ejercicio6.html">📐 Ejercicio 6</a></li>
-      <li><a href="ejercicio61.html">🧮 Ejercicio 6.1</a></li>
-    </ul>
-  </nav>    
-  <h1 style="text-align: left;">Intersección de rectas</h1>
-  <p style="text-align: justify;">
-    En este ejercicio podrás explorar gráficamente el concepto de intersección de rectas. Puedes trazar dos rectas sobre un plano cartesiano de dos formas: haciendo clic directamente sobre el lienzo o introduciendo sus ecuaciones en forma pendiente-ordenada $y = mx + n$. La herramienta calcula automáticamente el punto de corte y lo muestra visualmente. ¡Experimenta con distintas pendientes y observa cómo varía su punto de intersección!
-  </p>  
-  <div style="text-align: center; margin-bottom: 10px;">
-    <label for="modoSelector">Modo:</label>
-    <select id="modoSelector">
-      <option value="clicks">Clicks en el canvas</option>
-      <option value="pendiente">Ingresar pendiente y ordenada en el origen</option>
-    </select>
-  </div>
-  
-  <div id="entradaPendientes" style="display: none; text-align: center; margin-bottom: 10px; font-size: 16px;">
-    <p>Dada la ecuación de la recta $y = mx + n$, introduce:</p>
-  
-    <div style="margin-bottom: 8px;">
-      Recta 1.&nbsp;
-      m = <input type="number" id="m1" placeholder="m₁" step="any" style="width: 60px; margin: 0 8px;">
-      n = <input type="number" id="n1" placeholder="n₁" step="any" style="width: 60px;">
+  <head>
+    <link rel="icon" href="logo.png" type="image/png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 6 - Intersección de Rectas</title>
+    <link rel="stylesheet" href="miestilo.css" />
+    <script src="misFunciones.js" defer></script>
+    <!-- MathJax para ecuaciones -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+          }
+      });
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML"
+      async
+    ></script>
+    <style>
+      canvas {
+        display: block;
+        margin: 20px auto;
+        border: 1px solid black;
+        cursor: crosshair;
+      }
+      #resultado {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body onload="inicializarInterseccionRectas()">
+    <nav class="menu-lateral">
+      <ul>
+        <li><a href="index.html">🏠 Inicio</a></li>
+        <li><a href="ejercicio2.html">📋 Ejercicio 2</a></li>
+        <li><a href="ejercicio3.html">🎨 Ejercicio 3</a></li>
+        <li><a href="ejercicio4.html">🔧 Ejercicio 4</a></li>
+        <li><a href="ejercicio5.html">🖌️ Ejercicio 5</a></li>
+        <li><a href="ejercicio6.html">📐 Ejercicio 6</a></li>
+        <li><a href="ejercicio61.html">🧮 Ejercicio 6.1</a></li>
+      </ul>
+    </nav>
+    <h1 style="text-align: left">Intersección de rectas</h1>
+    <p style="text-align: justify">
+      En este ejercicio podrás explorar gráficamente el concepto de intersección
+      de rectas. Puedes trazar dos rectas sobre un plano cartesiano de dos
+      formas: haciendo clic directamente sobre el lienzo o introduciendo sus
+      ecuaciones en forma pendiente-ordenada $y = mx + n$. La herramienta
+      calcula automáticamente el punto de corte y lo muestra visualmente.
+      ¡Experimenta con distintas pendientes y observa cómo varía su punto de
+      intersección!
+    </p>
+    <div style="text-align: center; margin-bottom: 10px">
+      <label for="modoSelector">Modo:</label>
+      <select id="modoSelector">
+        <option value="clicks">Clicks en el canvas</option>
+        <option value="pendiente">
+          Ingresar pendiente y ordenada en el origen
+        </option>
+      </select>
     </div>
-  
-    <div style="margin-bottom: 10px;">
-      Recta 2.&nbsp;
-      m = <input type="number" id="m2" placeholder="m₂" step="any" style="width: 60px; margin: 0 8px;">
-      n = <input type="number" id="n2" placeholder="n₂" step="any" style="width: 60px;">
-    </div>
-  
-    <button onclick="dibujarRectasDesdeFormula()">Dibujar y calcular intersección</button>
-  </div>  
 
-  <canvas id="canvas" width="630" height="630"></canvas>
-  <div id="resultado"></div>
-  <div style="text-align: center; margin-top: 10px;">
-    <button id="borrarTodo">Borrar todo</button>
-  </div> 
-</body>
+    <div
+      id="entradaPendientes"
+      style="
+        display: none;
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 16px;
+      "
+    >
+      <p>Dada la ecuación de la recta $y = mx + n$, introduce:</p>
+
+      <div style="margin-bottom: 8px">
+        Recta 1.&nbsp; m =
+        <input
+          type="number"
+          id="m1"
+          placeholder="m₁"
+          step="any"
+          style="width: 60px; margin: 0 8px"
+        />
+        n =
+        <input
+          type="number"
+          id="n1"
+          placeholder="n₁"
+          step="any"
+          style="width: 60px"
+        />
+      </div>
+
+      <div style="margin-bottom: 10px">
+        Recta 2.&nbsp; m =
+        <input
+          type="number"
+          id="m2"
+          placeholder="m₂"
+          step="any"
+          style="width: 60px; margin: 0 8px"
+        />
+        n =
+        <input
+          type="number"
+          id="n2"
+          placeholder="n₂"
+          step="any"
+          style="width: 60px"
+        />
+      </div>
+
+      <button onclick="dibujarRectasDesdeFormula()">
+        Dibujar y calcular intersección
+      </button>
+    </div>
+
+    <canvas id="canvas" width="630" height="630"></canvas>
+    <div id="resultado"></div>
+    <div style="text-align: center; margin-top: 10px">
+      <button id="borrarTodo">Borrar todo</button>
+    </div>
+  </body>
 </html>
